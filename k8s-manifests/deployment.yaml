@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: delivery-ms
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: delivery-ms
+  template:
+    metadata:
+      labels:
+        app: delivery-ms
+    spec:
+      containers:
+      - name: delivery-ms
+        image: joelarias/delivery-ms-app:latest
+        ports:
+        - containerPort: 8083
